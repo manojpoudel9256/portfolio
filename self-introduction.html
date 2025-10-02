@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self Introduction - Manoj Poudel</title>
+    <style>
+        body {
+            background-color: rgb(15, 15, 42);
+            font-family: 'Arial', sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: rgb(18, 18, 62);
+            padding: 20px;
+            text-align: center;
+            font-size: 2rem;
+            color: white;
+            position: relative;
+        }
+
+        .language-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .language-buttons button {
+            padding: 10px 20px;
+            background: rgb(156, 81, 226);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .language-buttons button:hover {
+            background: rgb(121, 42, 195);
+        }
+
+        .content {
+            padding: 30px;
+            max-width: 80vw;
+            margin: auto;
+            background-color: rgb(28, 28, 70);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: rgb(156, 81, 226);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            font-size: 1.2rem;
+            color: #dcdcdc;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            color: rgb(156, 81, 226);
+            font-weight: bold;
+        }
+
+        .japanese-text,
+        .english-text {
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            background-color: rgb(18, 18, 62);
+            padding: 20px;
+            color: gray;
+            font-size: 1rem;
+            margin-top: 30px;
+        }
+
+        .back-to-portfolio {
+            padding: 10px 20px;
+            background: rgb(156, 81, 226);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            text-decoration: none;
+        }
+
+        .back-to-portfolio:hover {
+            background: rgb(121, 42, 195);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="language-buttons">
+            <button onclick="toggleLanguage('japanese')">日本語</button>
+            <button onclick="toggleLanguage('english')">English</button>
+        </div>
+    </header>
+
+    <div class="content" id="introduction">
+        <h1>自己紹介 / Self Introduction</h1>
+
+      <!-- Self Introduction Text -->
+<div id="japanese-text" class="japanese-text">
+    <p class="section">はじめまして。私は<strong class="highlight">ポーデル　マノジュ　クマール</strong>と申します。ネパール出身で、現在は北海道でITを学んでいます。</p>
+    
+    <p class="section">いまでは<strong class="highlight">システム開発</strong>や<strong class="highlight">プログラミング</strong>に興味をもち、学校ではJava、JavaScript、HTML、CSS、PHP、データベースの技術などを学びました。</p>
+    
+    <p class="section">また、学校のプロジェクトでは<strong class="highlight">リーダー</strong>としてチームをまとめ、SNSシステムの開発を行いました。その中で、<strong class="highlight">コミュニケーション</strong>や<strong class="highlight">チームワーク</strong>の大切さを学び、難しい問題に直面した際には、粘り強く、さまざまな角度から考える力が身に付きました。</p>
+    
+    <p class="section">私は<strong class="highlight">日本語・英語・ヒンディー語・ネパール語</strong>の4か国語を話すことができます。</p>
+    
+    <p class="section">将来的には、<strong class="highlight">ITエンジニア</strong>として社会に貢献できるよう努力してまいります。どうぞよろしくお願いいたします。</p>
+</div>
+
+<div id="english-text" class="english-text">
+    <p class="section">Nice to meet you. My name is <strongjavascript:jf_FileConfirm('edit') class="highlight">Manoj Kumar Paudel</strong>, and I am originally from Nepal. I am currently studying IT in Hokkaido, Japan.</p>
+    
+    <p class="section">I have developed a strong interest in <strong class="highlight">system development</strong> and <strong class="highlight">programming</strong>. At school, I have learned technologies such as Java, JavaScript, HTML, CSS, PHP, and database management.</p>
+    
+    <p class="section">As a <strong class="highlight">team leader</strong> in a school project, I led the development of an SNS system. Through this experience, I learned the importance of <strong class="highlight">communication</strong> and <strong class="highlight">teamwork</strong>, and I developed the ability to think flexibly and persistently when facing difficult challenges.</p>
+    
+    <p class="section">I can speak <strong class="highlight">four languages</strong>: Japanese, English, Hindi, and Nepali.</p>
+    
+    <p class="section">In the future, I aim to contribute to society as an <strong class="highlight">IT engineer</strong>. Thank you for taking the time to read my introduction.</p>
+</div>
+
+    <footer>
+        <a href="index.html" class="back-to-portfolio">Back to Portfolio</a>
+        <p>Copyright &#169; Manoj Poudel - All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to toggle between languages
+        function toggleLanguage(language) {
+            if (language === 'japanese') {
+                document.getElementById('japanese-text').style.display = 'block';
+                document.getElementById('english-text').style.display = 'none';
+            } else {
+                document.getElementById('japanese-text').style.display = 'none';
+                document.getElementById('english-text').style.display = 'block';
+            }
+        }
+
+        // Default to Japanese language
+        window.onload = function() {
+            toggleLanguage('japanese');
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マノジュ - デベロッパーポートフォリオ</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: top 0.3s;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+        }
+
+        .left {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #6366f1;
+        }
+
+        .nav-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .right ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .right ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            font-size: 0.9rem;
+        }
+
+        .right ul li a:hover { color: #6366f1; }
+
+        .right ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #6366f1;
+            transition: width 0.3s;
+        }
+
+        .right ul li a:hover::after { width: 100%; }
+
+        main {
+            margin-top: 80px;
+            padding: 2rem 5%;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            margin: 2rem 0;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .firstSection {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            min-height: 70vh;
+        }
+
+        .leftSection { flex: 1; }
+
+        .leftSection div:first-child {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .leftSection div:nth-child(2) {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .text-purple {
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        #element {
+            font-size: 2rem;
+            color: #059669;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 2rem;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+        }
+
+        .rightSection {
+            flex: 1;
+            text-align: center;
+        }
+
+        .rightSection img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .text-gray {
+            color: #6b7280;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 1rem 0 2rem;
+            color: #1f2937;
+        }
+
+        .education-item, .qualification-item {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 2rem;
+            margin: 1.5rem 0;
+            border-radius: 15px;
+            border-left: 5px solid #6366f1;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .education-item:hover, .qualification-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .item-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .item-subtitle {
+            font-size: 1.1rem;
+            color: #6366f1;
+            margin-bottom: 0.5rem;
+        }
+
+        .item-period {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+
+        .item-desc {
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .card-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-level {
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Language cards */
+        .lang-card {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.2);
+        }
+        .lang-card:hover {
+            border-color: #0ea5e9;
+            box-shadow: 0 20px 40px rgba(14, 165, 233, 0.3);
+        }
+        .lang-card .card-name { color: #0c4a6e; }
+        .lang-card .card-level { color: #0369a1; }
+        .lang-card .card-desc { color: #075985; }
+
+        /* Programming cards */
+        .prog-card {
+            background: linear-gradient(135deg, #fef7f0 0%, #fed7aa 100%);
+            box-shadow: 0 10px 25px rgba(251, 146, 60, 0.2);
+        }
+        .prog-card:hover {
+            border-color: #fb923c;
+            box-shadow: 0 20px 40px rgba(251, 146, 60, 0.3);
+        }
+        .prog-card .card-name { color: #c2410c; }
+        .prog-card .card-level { color: #ea580c; }
+        .prog-card .card-desc { color: #dc2626; }
+
+        /* Tool cards */
+        .tool-card {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            box-shadow: 0 10px 25px rgba(34, 197, 94, 0.2);
+        }
+        .tool-card:hover {
+            border-color: #22c55e;
+            box-shadow: 0 20px 40px rgba(34, 197, 94, 0.3);
+        }
+        .tool-card .card-name { color: #15803d; }
+        .tool-card .card-level { color: #16a34a; }
+        .tool-card .card-desc { color: #166534; }
+
+        /* Goal cards */
+        .goal-card {
+            background: linear-gradient(135deg, #fef3c7 0%, #f59e0b 100%);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+        }
+        .goal-card .card-name { color: #92400e; }
+        .goal-card .card-desc { color: #a16207; }
+
+        footer {
+            background: #1f2937;
+            color: white;
+            margin-top: 4rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 3rem 5%;
+        }
+
+        .footer-about h3, .footer-links h3, .footer-social h3 {
+            margin-bottom: 1rem;
+            color: #6366f1;
+        }
+
+        .footer-links ul { list-style: none; }
+
+        .footer-links ul li { margin-bottom: 0.5rem; }
+
+        .footer-links ul li a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links ul li a:hover { color: #6366f1; }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s;
+        }
+
+        .social-links a:hover img { transform: scale(1.2); }
+
+        .footer-bottom {
+            background: #111827;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-to-top {
+            background: #6366f1;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .back-to-top:hover { background: #4f46e5; }
+
+        @media (max-width: 768px) {
+            .nav-menu { display: block; }
+
+            .right ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .right ul.active { display: flex; }
+
+            .firstSection {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .leftSection div:first-child { font-size: 2rem; }
+            .leftSection div:nth-child(2), #element { font-size: 1.5rem; }
+            h1 { font-size: 2rem; }
+            .buttons { justify-content: center; }
+            .footer-bottom { flex-direction: column; gap: 1rem; }
+            main { padding: 2rem 3%; }
+            .section { padding: 2rem; }
+            .card-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="left">マノジュのポートフォリオ</div>
+            <div class="nav-menu">☰</div>
+            <div class="right">
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="self-introduction.html">自己紹介</a></li>
+                    <li><a href="#education">学歴</a></li>
+                    <li><a href="#qualifications">資格・実績</a></li>
+                    <li><a href="#languages">言語スキル</a></li>
+                    <li><a href="#programming">プログラミング</a></li>
+                    <li><a href="#tools">IT/サーバー</a></li>
+                    <li><a href="#goals">将来の目標</a></li>
+                    <li><a href="project.html">プロジェクト</a></li>
+                    <li><a href="contactus.html">お問い合わせ</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section firstSection">
+            <div class="leftSection">
+                <div>こんにちは, 私は <span class="text-purple">マノジュ</span> です。</div>
+                <div>ネパール出身で、現在は北海道札幌市にある専門学校北海道サイバークリエーターズ大学校の情報システム学科で、2年生として勉強しております。</div>
+                <span id="element"></span>
+                <div class="buttons">
+                    <button class="btn" onclick="window.open('viewCV.html', '_blank')">履歴書をダウンロード</button>
+                    <button class="btn" onclick="window.open('https://github.com/manojpoudel9256', '_blank')">Githubを訪問</button>
+                </div>
+            </div>
+            <div class="rightSection">
+                <img src="./img/img077.png" alt="プロフィール画像">
+            </div>
+        </section>
+
+        <section id="education" class="section">
+            <span class="text-gray">私の学習経歴</span>
+            <h1>学歴</h1>
+            <div class="education-item">
+                <div class="item-title">情報ビジネス学科</div>
+                <div class="item-subtitle">専門学校北海道サイバークリエイターズ大学校</div>
+                <div class="item-period">2024年4月 - 2026年3月（卒業見込み）</div>
+                <div class="item-desc">ネットワーク、クラウド、サイバーセキュリティを中心に学習。Java、HTML、CSS、JavaScript、PHP、Linuxを活用したWeb開発も実践。複数のウェブサイトを開発した経験あり。</div>
+            </div>
+            <div class="education-item">
+                <div class="item-title">日本語学習課程</div>
+                <div class="item-subtitle">北海道日本語学院 札幌本校</div>
+                <div class="item-period">2022年4月 - 2024年3月</div>
+                <div class="item-desc">日本語能力試験N3レベル合格。日本文化・ビジネスマナーを学び、地域イベントのボランティアサークルをリードするなど、実践的な活動経験を積む。</div>
+            </div>
+            <div class="education-item">
+                <div class="item-title">高等学校課程</div>
+                <div class="item-subtitle">Gyan Jyoti Secondary School（ネパール）</div>
+                <div class="item-period">2016年7月 - 2018年6月</div>
+                <div class="item-desc">コンピュータ基礎、英語、数学を中心に学習。卒業後、日本への留学準備を開始。</div>
+            </div>
+        </section>
+
+        <section id="qualifications" class="section">
+            <span class="text-gray">私の成果と実績</span>
+            <h1>資格・実績</h1>
+            <div class="qualification-item">
+                <div class="item-title">日本語能力試験 N3</div>
+                <div class="item-subtitle">国際交流基金・日本国際教育支援協会</div>
+                <div class="item-period">2023年8月 合格</div>
+                <div class="item-desc">日常的な日本語の理解・使用が可能。現在はN2合格を目指して勉強中。</div>
+            </div>
+            <div class="qualification-item">
+                <div class="item-title">Oracle Java SE Bronze</div>
+                <div class="item-subtitle">Oracle Corporation</div>
+                <div class="item-period">2024年9月 合格</div>
+                <div class="item-desc">Javaプログラミングの基本的な文法・構文・概念を理解。オブジェクト指向の基礎にも習熟。</div>
+            </div>
+            <div class="qualification-item">
+                <div class="item-title">TOEIC Listening & Reading Test</div>
+                <div class="item-subtitle">ETS</div>
+                <div class="item-period">2025年6月 スコア 845</div>
+                <div class="item-desc">高い英語リスニング・読解力を証明。国際的な環境でも円滑にコミュニケーション可能。</div>
+            </div>
+        </section>
+
+        <section id="languages" class="section">
+            <span class="text-gray">コミュニケーション能力</span>
+            <h1>言語スキル</h1>
+            <div class="card-grid">
+                <div class="card lang-card">
+                    <img src="./img/np.png" alt="Nepal Flag" width="150" height="120">
+                    <div class="card-name">ネパール語</div>
+                    <div class="card-level">母国語</div>
+                    <div class="card-desc">ネパールの公用語。完全にネイティブレベルで、文学的な表現から日常会話まで幅広く対応可能。</div>
+                </div>
+                <div class="card lang-card">
+                    <img src="./img/us.png" alt="USA Flag" width="80" height="120">
+                    <div class="card-name">英語</div>
+                    <div class="card-level">上級 (TOEIC 845)</div>
+                    <div class="card-desc">ビジネスレベルの英語力。技術文書の読解、国際的なプロジェクトでのコミュニケーションが可能。</div>
+                </div>
+                <div class="card lang-card">
+                    <img src="./img/in.png" alt="India Flag" width="100" height="130">
+                    <div class="card-name">ヒンディー語</div>
+                    <div class="card-level">流暢</div>
+                    <div class="card-desc">南アジア地域での共通語として習得。映画、音楽、文化的コンテンツの理解と日常会話が可能。</div>
+                </div>
+                <div class="card lang-card">
+                    <img src="./img/jp.png" alt="Japan Flag" width="200" height="120">
+                    <div class="card-name">日本語</div>
+                    <div class="card-level">中級 (JLPT N3)</div>
+                    <div class="card-desc">日常生活・学習に必要な日本語能力。現在N2レベル合格を目指して継続学習中。</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="programming" class="section">
+            <span class="text-gray">技術的専門知識</span>
+            <h1>プログラミング言語</h1>
+            <div class="card-grid">
+                <div class="card prog-card">
+                    <div class="card-icon">☕</div>
+                    <div class="card-name">Java</div>
+                    <div class="card-level">中級</div>
+                    <div class="card-desc">Oracle Java SE Bronze取得。オブジェクト指向プログラミングの基礎から応用まで。Webアプリケーション開発経験あり。</div>
+                </div>
+                <div class="card prog-card">
+                    <div class="card-icon">🟨</div>
+                    <div class="card-name">JavaScript</div>
+                    <div class="card-level">中級</div>
+                    <div class="card-desc">フロントエンド開発に使用。DOM操作、イベント処理、非同期処理を含む動的なWebサイト制作が可能。</div>
+                </div>
+                <div class="card prog-card">
+                    <div class="card-icon">🐘</div>
+                    <div class="card-name">PHP</div>
+                    <div class="card-level">中級</div>
+                    <div class="card-desc">サーバーサイド開発言語として使用。データベース連携、セッション管理を含むWebアプリケーション開発。</div>
+                </div>
+                <div class="card prog-card">
+                    <div class="card-icon">📄</div>
+                    <div class="card-name">HTML</div>
+                    <div class="card-level">上級</div>
+                    <div class="card-desc">セマンティックHTML、アクセシビリティを考慮したマークアップ。レスポンシブデザインの実装経験豊富。</div>
+                </div>
+                <div class="card prog-card">
+                    <div class="card-icon">🎨</div>
+                    <div class="card-name">CSS</div>
+                    <div class="card-level">上級</div>
+                    <div class="card-desc">モダンCSS、Flexbox、Grid、アニメーション。レスポンシブデザインと視覚的に魅力的なUIの実装。</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tools" class="section">
+            <span class="text-gray">インフラ・システム管理</span>
+            <h1>IT/サーバー関連ツール</h1>
+            <div class="card-grid">
+                <div class="card tool-card">
+                    <div class="card-icon">☁️</div>
+                    <div class="card-name">AWS</div>
+                    <div class="card-level">基礎</div>
+                    <div class="card-desc">EC2、S3、RDSなどの基本サービスを理解。クラウドインフラストラクチャの構築と管理の基礎知識を習得中。</div>
+                </div>
+                <div class="card tool-card">
+                    <div class="card-icon">🐧</div>
+                    <div class="card-name">Linux</div>
+                    <div class="card-level">中級</div>
+                    <div class="card-desc">コマンドライン操作、ファイル管理、プロセス管理。サーバー環境での基本的な運用・保守作業が可能。</div>
+                </div>
+                <div class="card tool-card">
+                    <div class="card-icon">🗄️</div>
+                    <div class="card-name">MySQL Database</div>
+                    <div class="card-level">中級</div>
+                    <div class="card-desc">データベース設計、SQL文の作成、テーブル操作。Webアプリケーションとの連携実装経験あり。</div>
+                </div>
+                <div class="card tool-card">
+                    <div class="card-icon">💻</div>
+                    <div class="card-name">Debian</div>
+                    <div class="card-level">基礎</div>
+                    <div class="card-desc">Debian系Linuxディストリビューションの基本操作。パッケージ管理、システム設定の基礎知識。</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="goals" class="section">
+            <span class="text-gray">私の将来への挑戦</span>
+            <h1>将来の目標</h1>
+            <div class="card-grid">
+                <div class="card goal-card">
+                    <div class="card-icon">☕</div>
+                    <div class="card-name">Oracle Java Silver認定</div>
+                    <div class="card-desc">2025年夏頃の受験を予定。Javaプログラミングの実装スキルを証明し、より高度な開発プロジェクトに参加できることを目指します。</div>
+                </div>
+                <div class="card goal-card">
+                    <div class="card-icon">🗾</div>
+                    <div class="card-name">日本語能力試験 N2</div>
+                    <div class="card-desc">2025年12月の試験を目標に勉強中。ビジネスレベルの日本語能力を身につけ、日本企業でのキャリアアップを実現します。</div>
+                </div>
+                <div class="card goal-card">
+                    <div class="card-icon">🐧</div>
+                    <div class="card-name">Linux認定資格 (LPI/LinuC)</div>
+                    <div class="card-desc">LinuC Level1の取得を目指し、Linuxシステム管理とサーバー運用スキルを向上させ、クラウドインフラ分野でのキャリア発展を図ります。</div>
+                </div>
+                <div class="card goal-card">
+                    <div class="card-icon">🌐</div>
+                    <div class="card-name">シスコネットワーク認定 (CCNA/CCNP)</div>
+                    <div class="card-desc">CCNAの取得を目標とし、ネットワーク技術の基礎から応用まで習得。将来的にはCCNPレベルまで挑戦し、ネットワークエンジニアとしての専門性を高めます。</div>
+                </div>
+                <div class="card goal-card">
+                    <div class="card-icon">☸️</div>
+                    <div class="card-name">Kubernetes エンジニア認定 (CKA/CKAD/CKS)</div>
+                    <div class="card-desc">CKAやCKADの取得を計画し、コンテナオーケストレーション技術を習得。モダンなクラウドネイティブ開発に必要なスキルを身につけます。</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>私について</h3>
+                <p>インパクトのあるソリューションと革新的なデザインを作成する情熱的な開発者です。</p>
+            </div>
+            <div class="footer-links">
+                <h3>クイックリンク</h3>
+                <ul>
+                    <li><a href="self-introduction.html">自己紹介</a></li>
+                    <li><a href="#education">学歴</a></li>
+                    <li><a href="#qualifications">資格・実績</a></li>
+                    <li><a href="#goals">将来の目標</a></li>
+                    <li><a href="project.html">プロジェクト</a></li>
+                    <li><a href="contactus.html">お問い合わせ</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>フォローして</h3>
+                <div class="social-links">
+                    <a href="https://x.com/manojpoudel9256" target="_blank"><img src="./img/twitter.png" alt="Twitter"></a>
+                    <a href="https://www.linkedin.com/in/manoj-paudel-55ab57302" target="_blank"><img src="./img/Linkedin.png" alt="LinkedIn"></a>
+                    <a href="https://github.com/manojpoudel9256" target="_blank"><img src="./img/github.png" alt="GitHub"></a>
+                    <a href="https://www.instagram.com/manojpoudel_/" target="_blank"><img src="./img/instagram.png" alt="Instagram"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright &#169; manojportfolio.com || All rights Reserved.</p>
+            <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">トップに戻る</button>
+        </div>
+    </footer>
+
+    <script>
+        const navMenu = document.querySelector('.nav-menu');
+        const navList = document.querySelector('.right ul');
+        const nav = document.querySelector('nav');
+        let lastScroll = 0;
+
+        // Menu toggle
+        navMenu.addEventListener('click', () => navList.classList.toggle('active'));
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav')) navList.classList.remove('active');
+        });
+
+        // Navbar hide on scroll
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            nav.style.top = currentScroll > lastScroll ? '-80px' : '0';
+            lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+</body>
+</html>

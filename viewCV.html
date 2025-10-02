@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View CV</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+        }
+        .download-btn {
+            background-color: rgb(156, 81, 226);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            text-decoration: none;
+        }
+        .download-btn:hover {
+            background-color: rgb(121, 42, 195);
+        }
+        .cv-viewer {
+            max-width: 80vw;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-viewer">
+        <embed src="./pdf/cv.pdf" width="100%" height="600px" type="application/pdf">
+    </div>
+    <a href="./pdf/cv.pdf" download="Manoj_CV.pdf" class="download-btn">
+        履歴書をダウンロード
+    </a>
+</body>
+</html>
