@@ -27,15 +27,13 @@
 
 ## 📂 プロジェクト構造
 portfolio/
-├── index.html                # ホームページ
-├── self-introduction.html    # 自己紹介
-├── project.html              # プロジェクト一覧
-├── contactus.html            # お問い合わせ
-├── viewCV.html               # 履歴書
-├── img/                      # 画像フォルダ
-└── README.md                 # このファイル
-
-
+│── index.html # ホームページ
+│── self-introduction.html # 自己紹介ページ
+│── project.html # プロジェクトページ
+│── contactus.html # お問い合わせページ
+│── viewCV.html # 履歴書ページ
+│── img/ # 画像フォルダ
+│── README.md # プロジェクト説明
 
 ---
 
