@@ -8,8 +8,7 @@
 
 このポートフォリオサイトは、私のスキル、学歴、プロジェクト、将来の目標を紹介する個人Webサイトです。日本語で構築され、レスポンシブデザインに対応しています。
 
-**デモサイト**: https://241033.daa.jp/portf/index.html (https://241033.daa.jp/portf/index.html)
-
+**デモサイト**: https://241033.daa.jp/portf/index.html
 ---
 
 ## 主な機能
@@ -69,22 +68,30 @@ IT・サーバーツール
 
 
 ## スクリーンショット
+
 ホームページ
+
 <img src="img/screenshot_homepage.png" alt="ホームページスクリーンショット" width="600">
+
 自己紹介ページ
+
 <img src="img/screenshot_selfintro.png" alt="自己紹介ページスクリーンショット" width="600">
+
 プロジェクトページ
+
 <img src="img/screenshot_myprojects.png" alt="プロジェクトページスクリーンショット" width="600">
+
 お問い合わせページ
+
 <img src="img/screenshot_contactus.png" alt="お問い合わせページスクリーンショット" width="600">
 
+
 ## 開発者情報
-マノジュ・ポーデル
+ポーデル　マノジュ　クマール
 
-GitHub: https://github.com/manojpoudel9256 (https://github.com/manojpoudel9256)
+GitHub: https://github.com/manojpoudel9256
 Email: paudel.manoj@icloud.com
-Portfolio: https://241033.daa.jp/portf/index.html (https://241033.daa.jp/portf/index.html)
-
+Portfolio: https://241033.daa.jp/portf/index.html
 
 ## メッセージ
 このポートフォリオは、私のスキルや経験、学習過程をまとめた自己紹介ツールです。
