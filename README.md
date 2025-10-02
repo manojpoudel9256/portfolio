@@ -1,107 +1,100 @@
-マノジュ・ポーデル ポートフォリオ
-概要
+# マノジュ・ポーデル ポートフォリオ
 
-このポートフォリオサイトは、私、マノジュ・ポーデルが自ら設計・開発した個人開発者ポートフォリオです。
-日本での就職活動や自己紹介用に日本語で構築しました。
-サイト内では、私のスキル、学歴、資格・実績、プロジェクト、将来の目標などをご紹介しています。
+> 個人開発者ポートフォリオサイト - 日本での就職活動・自己紹介用
 
-主な内容
+[![Portfolio](https://img.shields.io/badge/Portfolio-Live-brightgreen)](https://241033.daa.jp/portf/index.html)
+[![GitHub](https://img.shields.io/badge/GitHub-manojpoudel9256-blue)](https://github.com/manojpoudel9256)
 
-自己紹介
+---
 
-学歴
+## 📌 概要
 
-資格・実績
+このポートフォリオサイトは、私のスキル、学歴、プロジェクト、将来の目標を紹介する個人Webサイトです。日本語で構築され、レスポンシブデザインに対応しています。
 
-言語スキル
+**🌐 デモサイト**: [https://241033.daa.jp/portf/index.html](https://241033.daa.jp/portf/index.html)
 
-プログラミングスキル
+---
 
-IT・サーバーツール
+## ✨ 主な機能
 
-将来の目標
+- 📱 **レスポンシブデザイン** - スマホ・タブレット・PC完全対応
+- 🎨 **モダンUI** - クリーンで洗練されたインターフェース
+- 📄 **履歴書ダウンロード** - CV閲覧・ダウンロード機能
+- 🌏 **日本語対応** - 将来的に英語対応予定
+- 📧 **お問い合わせフォーム** - 直接連絡可能
 
-プロジェクト
+---
 
-お問い合わせ
-
-技術スタック
-
-HTML5 / CSS3 / JavaScript
-
-レスポンシブデザイン（スマホ・タブレット・PC対応）
-
-Flexbox / Grid レイアウト
-
-モダンUIデザイン
-
-プロジェクト構造
+## 📂 プロジェクト構造
 portfolio/
-│── index.html             # ホームページ
-│── self-introduction.html # 自己紹介ページ
-│── project.html           # プロジェクトページ
-│── contactus.html         # お問い合わせページ
-│── viewCV.html            # 履歴書ページ
-│── img/                   # 画像フォルダ
-│── README.md              # プロジェクト説明
+├── index.html                # ホームページ
+├── self-introduction.html    # 自己紹介
+├── project.html              # プロジェクト一覧
+├── contactus.html            # お問い合わせ
+├── viewCV.html               # 履歴書
+├── img/                      # 画像フォルダ
+└── README.md                 # このファイル
 
-セットアップ方法
 
-リポジトリをクローン：
 
+---
+
+## 🛠️ 技術スタック
+
+| カテゴリ | 技術 |
+|---------|------|
+| **フロントエンド** | HTML5, CSS3, JavaScript |
+| **レイアウト** | Flexbox, CSS Grid |
+| **デザイン** | レスポンシブデザイン |
+| **デプロイ** | 静的ホスティング |
+
+---
+
+## 🚀 セットアップ方法
+
+### 1. リポジトリをクローン
+```bash
 git clone https://github.com/manojpoudel9256/portfolio.git
+2. プロジェクトフォルダに移動
 
-
-プロジェクトフォルダに移動：
-
+bash
 cd portfolio
+3. ブラウザで開く
+index.html をダブルクリック、またはブラウザにドラッグ&ドロップしてください。
 
+Note: 静的サイトのため、サーバー構築は不要です。
 
-ブラウザで index.html を開く。
-
-このポートフォリオは静的サイトですので、サーバー構築は不要です。
-
-スクリーンショット
-
-ホームページ:
+📄 コンテンツ
+✅ 自己紹介
+🎓 学歴
+🏆 資格・実績
+🗣️ 言語スキル（日本語・英語など）
+💻 プログラミングスキル
+🖥️ IT・サーバーツール
+🎯 将来の目標
+🚀 プロジェクト紹介
+📧 お問い合わせ
+📸 スクリーンショット
+ホームページ
 <img src="img/screenshot_homepage.png" alt="ホームページスクリーンショット" width="600">
-
-自己紹介ページ:
+自己紹介ページ
 <img src="img/screenshot_selfintro.png" alt="自己紹介ページスクリーンショット" width="600">
-
-プロジェクトページ:
+プロジェクトページ
 <img src="img/screenshot_myprojects.png" alt="プロジェクトページスクリーンショット" width="600">
-
-お問い合わせページ:
+お問い合わせページ
 <img src="img/screenshot_contactus.png" alt="お問い合わせページスクリーンショット" width="600">
+👤 開発者情報
+マノジュ・ポーデル
 
-(スクリーンショットは img/ フォルダ内に保存してください)
-
-特徴
-
-スマホ・タブレット・PC対応のレスポンシブデザイン
-
-クリーンでモダンなUI
-
-日本語表示（将来的に英語対応予定）
-
-履歴書ダウンロード機能
-
-GitHubリンク設置
-
-開発者情報
-
-名前: マノジュ・ポーデル
-
-GitHub: https://github.com/manojpoudel9256
-
-Email: paudel.manoj@icloud.com
-
-## デモサイト
-
-[ポートフォリオサイトを見る](https://241033.daa.jp/portf/index.html)
-
-メッセージ
-
+🐙 GitHub: @manojpoudel9256
+📧 Email: paudel.manoj@icloud.com
+🌐 Portfolio: 241033.daa.jp/portf
+💬 メッセージ
 このポートフォリオは、私のスキルや経験、学習過程をまとめた自己紹介ツールです。
+
 今後も技術力の向上を目指し、より洗練されたWeb開発を続けていきます。
+
+📝 ライセンス
+© 2025 マノジュ・ポーデル. All Rights Reserved.
+
+<div align="center"> <p>⭐ このプロジェクトが気に入ったら、ぜひスターをお願いします！</p> </div> ```
