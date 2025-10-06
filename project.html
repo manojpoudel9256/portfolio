@@ -5,314 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>私のプロジェクト - ポートフォリオ</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f5f5f5;
-            min-height: 100vh;
-            color: #2c3e50;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .header {
-            text-align: center;
-            margin: 4rem 0;
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        .header h1 {
-            font-size: 3rem;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-        }
-
-        .header p {
-            font-size: 1.2rem;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.8;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .project-card {
-            background: #fff;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
-            border: 1px solid #e0e0e0;
-            animation: slideUp 0.6s ease-out;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(156, 81, 226, 0.1) 0%, transparent 70%);
-            transform: scale(0);
-            transition: transform 0.6s ease;
-        }
-
-        .project-card:hover::before {
-            transform: scale(1);
-        }
-
-        .project-card:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 12px 40px rgba(156, 81, 226, 0.2);
-            border-color: rgba(156, 81, 226, 0.3);
-        }
-
-        .project-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1.5rem;
-            background: linear-gradient(135deg, #9c51e2, #7a2ac3);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            box-shadow: 0 4px 15px rgba(156, 81, 226, 0.3);
-            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .project-card:nth-child(2) .project-icon {
-            background: linear-gradient(135deg, #4ecdc4, #44a08d);
-            box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
-        }
-
-        .project-card:hover .project-icon {
-            transform: scale(1.15) rotate(10deg);
-            box-shadow: 0 8px 25px rgba(156, 81, 226, 0.5);
-        }
-
-        .project-title {
-            font-size: 1.8rem;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            text-align: center;
-            font-weight: 600;
-        }
-
-        .project-description {
-            color: #666;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .project-tags {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tag {
-            background: #f0f0f0;
-            color: #666;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            border: 1px solid #e0e0e0;
-            transition: all 0.3s ease;
-        }
-
-        .project-card:hover .tag {
-            background: #9c51e2;
-            color: #fff;
-            border-color: #9c51e2;
-            transform: translateY(-2px);
-        }
-
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: #9c51e2;
-            color: white;
-            text-decoration: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(156, 81, 226, 0.2);
-            width: 100%;
-        }
-
-        .project-link:hover {
-            background: #7a2ac3;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(156, 81, 226, 0.4);
-        }
-
-        .back-button {
-            position: fixed;
-            top: 2rem;
-            left: 2rem;
-            background: #fff;
-            color: #2c3e50;
-            padding: 0.8rem 1.2rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e0e0e0;
-        }
-
-        .back-button:hover {
-            background: #f5f5f5;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .header p {
-                font-size: 1rem;
-            }
-            
-            .container {
-                padding: 1rem;
-            }
-            
-            .back-button {
-                top: 1rem;
-                left: 1rem;
-                padding: 0.6rem 1rem;
-                font-size: 0.9rem;
-            }
-        }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Segoe UI',sans-serif;background:#f5f5f5;min-height:100vh;color:#2c3e50}
+        .container{max-width:1200px;margin:0 auto;padding:2rem}
+        .header{text-align:center;margin:4rem 0;animation:fadeIn .8s ease-out}
+        .header h1{font-size:3rem;color:#2c3e50;margin-bottom:1rem}
+        .header p{font-size:1.2rem;color:#666;max-width:600px;margin:0 auto;line-height:1.8}
+        .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:2rem;margin-bottom:2rem}
+        .project-card{background:#fff;border-radius:20px;padding:2rem;box-shadow:0 4px 20px rgba(0,0,0,.1);transition:all .4s cubic-bezier(.175,.885,.32,1.275);cursor:pointer;border:1px solid #e0e0e0;animation:slideUp .6s ease-out;position:relative;overflow:hidden}
+        .project-card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(156,81,226,.1) 0%,transparent 70%);transform:scale(0);transition:transform .6s ease}
+        .project-card:hover::before{transform:scale(1)}
+        .project-card:nth-child(2){animation-delay:.2s}
+        .project-card:nth-child(3){animation-delay:.4s}
+        .project-card:hover{transform:translateY(-15px) scale(1.02);box-shadow:0 12px 40px rgba(156,81,226,.2);border-color:rgba(156,81,226,.3)}
+        .project-icon{width:80px;height:80px;margin:0 auto 1.5rem;background:linear-gradient(135deg,#9c51e2,#7a2ac3);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 4px 15px rgba(156,81,226,.3);transition:all .4s cubic-bezier(.68,-.55,.265,1.55);animation:float 3s ease-in-out infinite}
+        @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+        .project-card:nth-child(2) .project-icon{background:linear-gradient(135deg,#4ecdc4,#44a08d);box-shadow:0 4px 15px rgba(78,205,196,.3)}
+        .project-card:nth-child(3) .project-icon{background:linear-gradient(135deg,#f7971e,#ffd200);box-shadow:0 4px 15px rgba(247,151,30,.3)}
+        .project-card:hover .project-icon{transform:scale(1.15) rotate(10deg);box-shadow:0 8px 25px rgba(156,81,226,.5)}
+        .project-title{font-size:1.8rem;color:#2c3e50;margin-bottom:1rem;text-align:center;font-weight:600}
+        .project-description{color:#666;line-height:1.8;margin-bottom:1.5rem;text-align:center}
+        .project-tags{display:flex;justify-content:center;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem}
+        .tag{background:#f0f0f0;color:#666;padding:.3rem .8rem;border-radius:20px;font-size:.9rem;border:1px solid #e0e0e0;transition:all .3s ease}
+        .project-card:hover .tag{background:#9c51e2;color:#fff;border-color:#9c51e2;transform:translateY(-2px)}
+        .project-link{display:inline-flex;align-items:center;justify-content:center;background:#9c51e2;color:#fff;text-decoration:none;padding:.8rem 1.5rem;border-radius:25px;font-weight:600;transition:all .3s ease;box-shadow:0 4px 15px rgba(156,81,226,.2);width:100%}
+        .project-link:hover{background:#7a2ac3;transform:translateY(-2px);box-shadow:0 6px 20px rgba(156,81,226,.4)}
+        .back-button{position:fixed;top:2rem;left:2rem;background:#fff;color:#2c3e50;padding:.8rem 1.2rem;border-radius:25px;text-decoration:none;font-weight:600;transition:all .3s ease;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.1);border:1px solid #e0e0e0}
+        .back-button:hover{background:#f5f5f5;transform:translateY(-2px);box-shadow:0 4px 15px rgba(0,0,0,.15)}
+        @keyframes fadeIn{from{opacity:0;transform:translateY(-30px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes slideUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+        @media(max-width:768px){.projects-grid{grid-template-columns:1fr;gap:1.5rem}.header h1{font-size:2rem}.header p{font-size:1rem}.container{padding:1rem}.back-button{top:1rem;left:1rem;padding:.6rem 1rem;font-size:.9rem}}
     </style>
 </head>
 <body>
     <a href="index.html" class="back-button">← ポートフォリオに戻る</a>
-
     <div class="container">
         <div class="header">
             <h1>私のプロジェクト</h1>
             <p>情熱と創造性をもって構築したウェブサイトとアプリケーションをご覧ください</p>
         </div>
-
         <div class="projects-grid">
-            <!-- SNS Website Project -->
             <div class="project-card" onclick="openProject('https://241033.daa.jp/sns3/')">
-                <div class="project-icon">
-                    🌐
-                </div>
+                <div class="project-icon">🌐</div>
                 <h3 class="project-title">SNSウェブサイト</h3>
-                <p class="project-description">
-                    最先端のウェブ技術で構築されたモダンなソーシャルネットワーキングプラットフォーム。ユーザープロフィール、洗練されたレスポンシブデザインによるインタラクティブなソーシャルフィードを特徴としています。
-                </p>
+                <p class="project-description">最先端のウェブ技術で構築されたモダンなソーシャルネットワーキングプラットフォーム。ユーザープロフィール、洗練されたレスポンシブデザインによるインタラクティブなソーシャルフィードを特徴としています。</p>
                 <div class="project-tags">
                     <span class="tag">React</span>
                     <span class="tag">Node.js</span>
                     <span class="tag">MongoDB</span>
                 </div>
-                <a href="https://241033.daa.jp/sns3/" class="project-link" target="_blank" onclick="event.stopPropagation()">
-                    ライブサイトを見る →
-                </a>
+                <a href="https://241033.daa.jp/sns3/" class="project-link" target="_blank" onclick="event.stopPropagation()">ライブサイトを見る →</a>
             </div>
-
-            <!-- Salary Tracker Project -->
             <div class="project-card" onclick="openProject('https://241033.daa.jp/salary_jap/auth/login.php')">
-                <div class="project-icon">
-                    💰
-                </div>
+                <div class="project-icon">💰</div>
                 <h3 class="project-title">給与トラッカー</h3>
-                <p class="project-description">
-                    包括的な給与管理・追跡アプリケーション。ユーザーは収入を監視し、支出を追跡し、レポートを生成し、インタラクティブなチャートで財務データを視覚化することができます。
-                </p>
+                <p class="project-description">包括的な給与管理・追跡アプリケーション。ユーザーは収入を監視し、支出を追跡し、レポートを生成し、インタラクティブなチャートで財務データを視覚化することができます。</p>
                 <div class="project-tags">
                     <span class="tag">JavaScript</span>
                     <span class="tag">Chart.js</span>
                 </div>
-                <a href="https://241033.daa.jp/salary_jap/auth/login.php" class="project-link" target="_blank" onclick="event.stopPropagation()">
-                    ライブサイトを見る →
-                </a>
+                <a href="https://241033.daa.jp/salary_jap/auth/login.php" class="project-link" target="_blank" onclick="event.stopPropagation()">ライブサイトを見る →</a>
+            </div>
+            <div class="project-card" onclick="openProject('https://241033.daa.jp/et/')">
+                <div class="project-icon">⏰</div>
+                <h3 class="project-title">エッグタイマー</h3>
+                <p class="project-description">完璧な卵料理を毎回作るための美しいタイマーアプリケーション。プリセットタイマー、カスタム設定、音声アラーム、多言語対応を備えた、インタラクティブで楽しいユーザー体験を提供します。</p>
+                <div class="project-tags">
+                    <span class="tag">HTML5</span>
+                    <span class="tag">CSS3</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Web Audio API</span>
+                </div>
+                <a href="https://241033.daa.jp/et/" class="project-link" target="_blank" onclick="event.stopPropagation()">ライブサイトを見る →</a>
             </div>
         </div>
     </div>
-
     <script>
-        function openProject(url) {
-            window.open(url, '_blank');
-        }
-
-        // Stagger tag animations
-        document.querySelectorAll('.project-card').forEach(card => {
-            const tags = card.querySelectorAll('.tag');
-            tags.forEach((tag, i) => {
-                tag.style.transitionDelay = `${i * 0.05}s`;
-            });
-        });
+        function openProject(url){window.open(url,'_blank')}
+        document.querySelectorAll('.project-card').forEach(card=>{card.querySelectorAll('.tag').forEach((tag,i)=>{tag.style.transitionDelay=`${i*.05}s`})});
     </script>
 </body>
 </html>
