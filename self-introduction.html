@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Self Introduction - Manoj Poudel</title>
+    <title>Manoj Kumar Paudel - Introduction</title>
     <style>
         * {
             margin: 0;
@@ -12,124 +12,153 @@
         }
 
         body {
-            background: #f5f5f5;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            color: #1a1a1a;
             min-height: 100vh;
-            line-height: 1.6;
+            line-height: 1.8;
         }
 
         header {
-            background: #fff;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             padding: 20px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #9c51e2;
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .lang-btns button {
-            padding: 8px 18px;
+            padding: 8px 20px;
             background: #fff;
-            color: #333;
-            border: 2px solid #9c51e2;
-            border-radius: 25px;
+            color: #667eea;
+            border: 2px solid #667eea;
+            border-radius: 20px;
             cursor: pointer;
             font-size: 0.9rem;
+            font-weight: 600;
             margin-left: 10px;
             transition: all 0.3s ease;
         }
 
         .lang-btns button:hover,
         .lang-btns button.active {
-            background: #9c51e2;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: #fff;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(156, 81, 226, 0.3);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
         }
 
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 60px auto;
-            padding: 0 20px;
+            padding: 0 30px;
         }
 
-        .card {
-            background: #fff;
-            border-radius: 20px;
-            padding: 50px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e0e0e0;
+        .intro-card {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 60px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            animation: fadeIn 0.6s ease;
         }
 
-        h1 {
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .greeting {
             font-size: 2.5rem;
-            color: #9c51e2;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 30px;
             text-align: center;
-            margin-bottom: 40px;
         }
 
         .content p {
-            font-size: 1.1rem;
-            color: #2c3e50;
-            margin-bottom: 20px;
-            line-height: 1.8;
+            font-size: 1.15rem;
+            color: #2d3748;
+            line-height: 2;
+            margin-bottom: 25px;
+            text-align: justify;
         }
 
         .highlight {
-            color: #9c51e2;
-            font-weight: 600;
+            color: #667eea;
+            font-weight: 700;
+        }
+
+        .signature {
+            margin-top: 40px;
+            text-align: right;
+            font-size: 1.1rem;
+            color: #4a5568;
+            font-style: italic;
         }
 
         .lang-content {
             display: none;
-            animation: fadeIn 0.5s ease-in;
         }
 
         .lang-content.active {
             display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            animation: fadeIn 0.5s ease;
         }
 
         footer {
             text-align: center;
-            padding: 30px;
-            margin-top: 50px;
-            background: #fff;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+            margin-top: 60px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.1);
         }
 
         .back-btn {
             display: inline-block;
             padding: 12px 30px;
-            background: #9c51e2;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: #fff;
             text-decoration: none;
-            border-radius: 25px;
-            margin-bottom: 15px;
+            border-radius: 20px;
+            font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(156, 81, 226, 0.2);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
         }
 
         .back-btn:hover {
-            background: #7a2ac3;
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(156, 81, 226, 0.4);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
         }
 
         footer p {
-            color: #666;
+            color: #718096;
             font-size: 0.9rem;
+            margin-top: 20px;
         }
 
         @media (max-width: 768px) {
@@ -138,16 +167,17 @@
                 gap: 15px;
             }
 
-            .card {
-                padding: 30px 25px;
+            .intro-card {
+                padding: 40px 30px;
             }
 
-            h1 {
+            .greeting {
                 font-size: 2rem;
             }
 
             .content p {
                 font-size: 1rem;
+                text-align: left;
             }
         }
     </style>
@@ -162,34 +192,82 @@
     </header>
 
     <div class="container">
-        <div class="card">
-            <h1>自己紹介 / Self Introduction</h1>
-
-            <div id="ja" class="lang-content">
+        <div id="ja" class="lang-content">
+            <div class="intro-card">
+                <h1 class="greeting">自己紹介</h1>
+                
                 <div class="content">
-                    <p>はじめまして。私は<strong class="highlight">ポーデル　マノジュ　クマール</strong>と申します。ネパール出身で、現在は北海道でITを学んでいます。</p>
+                    <p>
+                        はじめまして。<span class="highlight">ポーデル マノジュ クマール</span>と申します。1999年4月29日生まれ、ネパール出身で、現在は北海道札幌市でITを学んでいる26歳です。2022年4月に北海道日本語学院札幌本校に入学し、2024年3月に卒業しました。その後、専門学校北海道サイバークリエイターズ大学校に進学し、現在も在学中で2026年3月の卒業を予定しています。
+                    </p>
                     
-                    <p>いまでは<strong class="highlight">システム開発</strong>や<strong class="highlight">プログラミング</strong>に興味をもち、学校ではJava、JavaScript、HTML、CSS、PHP、データベースの技術などを学びました。</p>
+                    <p>
+                        日本に来た理由は、日本のIT技術が世界トップレベルで進んでおり、実践的な学びの環境が整っていると考えたからです。特に、日本の働く文化がチームワークを重視し、皆で協力しながら成果を上げる姿勢に強く惹かれました。また、日本の伝統文化や現代文化にも深い関心があり、実際に生活しながらもっと理解を深めたいと思っています。日本で学び、働く経験を通じて、技術者としてだけでなく、人間としても大きく成長していきたいと考えています。
+                    </p>
                     
-                    <p>また、学校のプロジェクトでは<strong class="highlight">リーダー</strong>としてチームをまとめ、SNSシステムの開発を行いました。その中で、<strong class="highlight">コミュニケーション</strong>や<strong class="highlight">チームワーク</strong>の大切さを学び、難しい問題に直面した際には、粘り強く、さまざまな角度から考える力が身に付きました。</p>
+                    <p>
+                        ITを専門として選んだ理由は、子供のころからパソコンに強い興味を持ち、自分の手で何かを作り上げたり、論理的に問題を解決することに喜びを感じていたからです。現代のITは世界中で活用されており、医療、教育、ビジネス、環境問題など、あらゆる分野で革新を生み出しています。これからの時代において、ITの知識と技術はますます不可欠なものになると確信しています。私は、ITの力を活用して人々の生活を豊かにし、社会全体に貢献できる仕事がしたいという強い想いから、この道を選びました。
+                    </p>
                     
-                    <p>私は<strong class="highlight">日本語・英語・ヒンディー語・ネパール語</strong>の4か国語を話すことができます。</p>
+                    <p>
+                        私は<span class="highlight">システム開発</span>と<span class="highlight">Webアプリケーション開発</span>に強い情熱を持っています。学校ではJava、PHP、JavaScript、HTML、CSS、MySQLなどの技術を学んでおり、データベース設計やサーバー環境の構築にも取り組んでいます。特にWebアプリケーション開発においては、フロントエンドとバックエンドの両方の技術を習得し、実践的なスキルを磨いてきました。Oracle Java SE Bronze試験に合格したことで、プログラミングの基礎をしっかりと固めることができました。
+                    </p>
                     
-                    <p>将来的には、<strong class="highlight">ITエンジニア</strong>として社会に貢献できるよう努力してまいります。どうぞよろしくお願いいたします。</p>
+                    <p>
+                        学校のプロジェクトでは<span class="highlight">リーダー</span>としてSNSウェブサイトの開発を主導しました。このプロジェクトでは、ユーザー登録、投稿、コメント機能を実装し、PHP、MySQL、HTML、CSS、JavaScriptを活用しました。チームをまとめながらプロジェクトを進める中で、チームワークとコミュニケーションの大切さを学び、困難な問題に直面した際には粘り強く様々な角度から考える力が身に付きました。また、個人プロジェクトとして、従業員の勤怠・給与管理を行う給料トラッカーシステムと、自分のスキルやプロジェクトを紹介するポートフォリオサイトも開発しています。これらの経験を通じて、実務に近い開発スキルを身につけることができました。
+                    </p>
+                    
+                    <p>
+                        日本語学校在学中には、ボランティアサークルのリーダーを務め、地域の清掃イベントを企画・運営するなど、社会貢献活動にも積極的に参加してきました。また、日本では3年間コンビニで勤務し、接客マナーや職場のルールを学び、日本の働き方や文化についても深く理解することができました。
+                    </p>
+                    
+                    <p>
+                        私は日本語、英語、ネパール語、ヒンディー語の4か国語を話すことができます。日本語能力試験N3レベルに合格し、TOEIC Listening & Reading公開テストでは845点を取得しました。この多言語能力を活かし、グローバルな環境で活躍したいと考えています。ITエンジニアとして、学んだ技術と多言語でのコミュニケーション力を活かし、システム開発を通じて社会に貢献することが私の目標です。どんなことにも興味を持ち、最後まで責任を持ってやり抜く姿勢で、これからも成長し続けていきたいと考えております。
+                    </p>
+                    
+                    <p class="signature">
+                        どうぞよろしくお願いいたします。
+                    </p>
                 </div>
             </div>
+        </div>
 
-            <div id="en" class="lang-content">
+        <div id="en" class="lang-content">
+            <div class="intro-card">
+                <h1 class="greeting">Self Introduction</h1>
+                
                 <div class="content">
-                    <p>Nice to meet you. My name is <strong class="highlight">Manoj Kumar Paudel</strong>, and I am originally from Nepal. I am currently studying IT in Hokkaido, Japan.</p>
+                    <p>
+                        Hello! My name is <span class="highlight">Manoj Kumar Paudel</span>. I was born on April 29, 1999, and I am originally from Nepal. I am currently 26 years old and studying IT in Sapporo, Hokkaido. I enrolled at Hokkaido Japanese Language Institute Sapporo Main School in April 2022 and graduated in March 2024. After that, I continued my education at Hokkaido Cyber Creators College, where I am currently enrolled and expecting to graduate in March 2026.
+                    </p>
                     
-                    <p>I have developed a strong interest in <strong class="highlight">system development</strong> and <strong class="highlight">programming</strong>. At school, I have learned technologies such as Java, JavaScript, HTML, CSS, PHP, and database management.</p>
+                    <p>
+                        I chose to come to Japan because Japanese IT technology is recognized as world-class, and I believed Japan would offer an ideal environment for practical, hands-on learning. I was particularly drawn to Japanese work culture, which emphasizes teamwork and collaboration to achieve shared goals. Beyond technology, I have a deep fascination with both traditional and contemporary Japanese culture, and I wanted to experience and understand it more deeply by living here. Through studying and working in Japan, I aim to grow not only as an IT professional but also as a person with broader perspectives and skills.
+                    </p>
                     
-                    <p>As a <strong class="highlight">team leader</strong> in a school project, I led the development of an SNS system. Through this experience, I learned the importance of <strong class="highlight">communication</strong> and <strong class="highlight">teamwork</strong>, and I developed the ability to think flexibly and persistently when facing difficult challenges.</p>
+                    <p>
+                        I chose IT as my career path because I have had a strong passion for computers since childhood. I have always found great satisfaction in creating things and solving problems logically using technology. Today, IT is utilized globally and drives innovation across diverse fields including healthcare, education, business, and environmental solutions. I am convinced that IT knowledge and skills will become increasingly essential in the future. I chose this path with a strong desire to use the power of IT to enrich people's lives and make meaningful contributions to society as a whole.
+                    </p>
                     
-                    <p>I can speak <strong class="highlight">four languages</strong>: Japanese, English, Hindi, and Nepali.</p>
+                    <p>
+                        I have a strong passion for <span class="highlight">system development</span> and <span class="highlight">web application development</span>. At school, I have learned technologies such as Java, PHP, JavaScript, HTML, CSS, and MySQL, and I am also working on database design and server environment configuration. In web application development, I have acquired skills in both frontend and backend technologies, building practical expertise. I successfully passed the Oracle Java SE Bronze certification exam, which helped me solidify my programming fundamentals.
+                    </p>
                     
-                    <p>In the future, I aim to contribute to society as an <strong class="highlight">IT engineer</strong>. Thank you for taking the time to read my introduction.</p>
+                    <p>
+                        As a <span class="highlight">team leader</span> in a school project, I led the development of an SNS website. In this project, I implemented user registration, posting, and commenting features using PHP, MySQL, HTML, CSS, and JavaScript. Leading the team through the project taught me the importance of teamwork and communication, and I developed the ability to think flexibly and persistently when facing difficult challenges. Additionally, I have developed personal projects including a Salary Tracker System for employee attendance and payroll management, and a Portfolio Website showcasing my skills and projects. Through these experiences, I have gained practical development skills close to real-world applications.
+                    </p>
+                    
+                    <p>
+                        While studying at the Japanese language school, I served as the leader of a volunteer club, actively participating in community service activities such as organizing and managing local cleanup events. I also worked at a convenience store in Japan for three years, where I learned customer service etiquette and workplace protocols, gaining a deep understanding of Japanese work culture and practices.
+                    </p>
+                    
+                    <p>
+                        I can speak four languages: Japanese, English, Nepali, and Hindi. I have passed the Japanese Language Proficiency Test at N3 level and achieved a score of 845 on the TOEIC Listening & Reading Test. I aim to leverage these multilingual communication skills to thrive in a global environment. My goal is to contribute to society as an IT engineer by utilizing the technical skills I have acquired and my multilingual communication abilities through system development. With a curious mindset and a commitment to seeing things through to completion, I strive to continue growing professionally.
+                    </p>
+                    
+                    <p class="signature">
+                        Thank you for taking the time to read my introduction.
+                    </p>
                 </div>
             </div>
         </div>
@@ -197,7 +275,7 @@
 
     <footer>
         <a href="index.html" class="back-btn" id="back-btn">← ポートフォリオに戻る</a>
-        <p>&copy; 2025 Manoj Poudel - All rights reserved.</p>
+        <p>&copy; 2025 Manoj Kumar Paudel - All rights reserved.</p>
     </footer>
 
     <script>
@@ -216,7 +294,6 @@
             document.getElementById('back-btn').textContent = backBtnText[lang];
         }
 
-        // Initialize with Japanese
         setLang('ja');
     </script>
 </body>
